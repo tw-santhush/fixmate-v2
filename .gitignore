@@ -1,0 +1,24 @@
+# Dependencies
+/vendor/
+node_modules/
+
+# User uploads (privacy — do not commit real NIC or avatar images)
+uploads/nic/*
+uploads/avatars/*
+!uploads/nic/.htaccess
+!uploads/avatars/.htaccess
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Logs and backups
+*.log
+*.bak
+*.zip
+
+# Local config
+.env
+.env.local
