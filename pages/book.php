@@ -7,8 +7,6 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-include '../includes/header.php';
-
 $user_id = $_SESSION['user_id'];
 $tech_id = (int)($_GET['tech_id'] ?? 0);
 
@@ -52,6 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
+
+include '../includes/header.php';
 
 // Initials
 $initials = '';

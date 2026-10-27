@@ -27,25 +27,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['action'] == 'login') {
     }
 
     // Check technicians
-    $tech = mysqli_fetch_assoc(mysqli_query($conn, "SELECT id, name, password FROM technicians WHERE email = '$email_sql'"));
+    $tech = mysqli_fetch_assoc(mysqli_query($conn, "SELECT id, name, password, status FROM technicians WHERE email = '$email_sql'"));
     if ($tech && password_verify($password, $tech['password'])) {
-        $_SESSION['tech_id']   = $tech['id'];
-        $_SESSION['tech_name'] = $tech['name'];
-        header('Location: dashboard.php');
-        exit();
+        if ($tech['status'] === 'suspended') {
+            $error = 'Your account has been suspended. Please contact support.';
+            $active_view = 'login';
+        } else {
+            $_SESSION['tech_id']   = $tech['id'];
+            $_SESSION['tech_name'] = $tech['name'];
+            header('Location: dashboard.php');
+            exit();
+        }
     }
 
     // Check normal users
-    $user = mysqli_fetch_assoc(mysqli_query($conn, "SELECT id, name, password FROM users WHERE email = '$email_sql'"));
+    $user = mysqli_fetch_assoc(mysqli_query($conn, "SELECT id, name, password, status FROM users WHERE email = '$email_sql'"));
     if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_id']   = $user['id'];
-        $_SESSION['user_name'] = $user['name'];
-        header('Location: home.php');
-        exit();
+        if ($user['status'] === 'blocked') {
+            $error = 'Your account has been blocked. Please contact support.';
+            $active_view = 'login';
+        } else {
+            $_SESSION['user_id']   = $user['id'];
+            $_SESSION['user_name'] = $user['name'];
+            header('Location: home.php');
+            exit();
+        }
     }
 
-    $error = 'Invalid email or password.';
-    $active_view = 'login';
+    if ($error === '') {
+        $error = 'Invalid email or password.';
+        $active_view = 'login';
+    }
 }
 
 // ============================================================
@@ -96,7 +108,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['action'] == 'customer') {
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['action'] == 'pro') {
     $name         = $_POST['name'];
     $phone_input  = $_POST['phone'];   // user types "77 123 4567"
-    $phone        = '94' . preg_replace('/[^0-9]/', '', $phone_input);  // -> 94771234567
+    $phone_clean  = preg_replace('/[^0-9]/', '', $phone_input);
+    if (substr($phone_clean, 0, 2) === '94') {
+        $phone = $phone_clean;
+    } elseif (substr($phone_clean, 0, 1) === '0') {
+        $phone = '94' . substr($phone_clean, 1);
+    } else {
+        $phone = '94' . $phone_clean;
+    }
     $service_id   = $_POST['service_id'];
     $district_id  = $_POST['district_id'] ?? '';
     $city         = $_POST['city'] ?? '';

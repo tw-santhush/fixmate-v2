@@ -7,8 +7,6 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-include '../includes/header.php';
-
 $user_id = $_SESSION['user_id'];
 
 // ============================================================
@@ -24,6 +22,8 @@ if (!$user) {
     header('Location: logout.php');
     exit();
 }
+
+include '../includes/header.php';
 
 // ============================================================
 // Stats — real from database

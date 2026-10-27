@@ -370,8 +370,6 @@ include '../includes/header.php';
 </section>
 
 
-<?php include '../includes/footer.php'; ?>
-
 <script>
 function goSearch() {
     var trade = document.getElementById('homeTrade').value;
@@ -444,3 +442,5 @@ document.addEventListener('click', function (e) {
     }
 });
 </script>
+
+<?php include '../includes/footer.php'; ?>

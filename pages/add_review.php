@@ -7,8 +7,6 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-include '../includes/header.php';
-
 $user_id = $_SESSION['user_id'];
 $tech_id = isset($_GET['tech_id']) ? (int)$_GET['tech_id'] : 0;
 
@@ -78,6 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header('Location: view_reviews.php?tech_id=' . $tech_id);
     exit();
 }
+
+include '../includes/header.php';
 
 // ============================================================
 // PRE-FILL VALUES
