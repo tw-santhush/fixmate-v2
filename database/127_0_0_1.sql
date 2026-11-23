@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2026 at 05:20 AM
+-- Generation Time: Nov 20, 2026 at 05:41 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -70,7 +70,8 @@ INSERT INTO `bookings` (`id`, `user_id`, `technician_id`, `job_description`, `pr
 (3, 2, 1, 'Test 5 Test 5 Test 5 Test 5 Test 5 ', 'Tomorrow morning 9-11 AM', 'declined', '2026-10-05 12:53:09', '2026-10-05 13:22:18'),
 (4, 2, 1, 'ufigbfgggggg\r\n', 'Tomorrow morning 9-11 AM', 'completed', '2026-10-05 13:13:38', '2026-10-05 14:21:04'),
 (5, 2, 8, 'i want to themiya', '9-10 a.m.', 'pending', '2026-10-05 13:21:30', '2026-10-05 13:21:30'),
-(6, 3, 5, 'Kitchen sink has been leaking for 2 days. Pipe under the cabinet needs\r\nreplacing.', 'Tomorrow morning 9-11 AM', 'pending', '2026-10-06 06:38:30', '2026-10-06 06:38:30');
+(6, 3, 5, 'Kitchen sink has been leaking for 2 days. Pipe under the cabinet needs\r\nreplacing.', 'Tomorrow morning 9-11 AM', 'pending', '2026-10-06 06:38:30', '2026-10-06 06:38:30'),
+(9, 5, 10, 'The kitchen sink is leaking and not draining properly.', 'Tomorrow morning 9-11 AM', 'completed', '2026-10-11 10:38:36', '2026-10-11 15:11:20');
 
 -- --------------------------------------------------------
 
@@ -519,7 +520,8 @@ CREATE TABLE `ratings` (
 --
 
 INSERT INTO `ratings` (`id`, `user_id`, `technician_id`, `rating`, `review`, `tags`, `created_at`) VALUES
-(1, 1, 1, 5, 'විශිෂ්ට කාර්යයක්, බෙහෙවින් නිර්දේශ කරමි.\r\nExcellent work, highly recommended.  ', 'Punctual Arrival,Fair & Transparent Pricing,Clean Worksite,High Quality Craft,Polite & Professional,Brought Proper Tools', '2026-10-04 06:12:14');
+(1, 1, 1, 5, 'විශිෂ්ට කාර්යයක්, බෙහෙවින් නිර්දේශ කරමි.\r\nExcellent work, highly recommended.  ', 'Punctual Arrival,Fair & Transparent Pricing,Clean Worksite,High Quality Craft,Polite & Professional,Brought Proper Tools', '2026-10-04 06:12:14'),
+(2, 5, 10, 5, 'Good work ', 'Punctual Arrival,Fair & Transparent Pricing,High Quality Craft', '2026-10-11 15:12:24');
 
 -- --------------------------------------------------------
 
@@ -594,7 +596,9 @@ INSERT INTO `technicians` (`id`, `email`, `password`, `name`, `phone`, `district
 (6, 'Sarath@gmail.com', '$2y$10$DD2cF8DciJWG50Ru0EisZ.DQIKmyj3oZUu/SNFCCFvEMsTuB/IV82', 'Sarath gamini', '94718574662', 13, 'Wariyapola', 15, 18, 'Rs. 500', 0.0, 0, '', NULL, 'verified', 0, 'uploads/nic/6_nic_front_resubmit_1791175309.png', 'uploads/nic/6_nic_back_resubmit_1791175309.png', NULL, '2026-10-05 04:43:54', '2026-10-04 11:41:47'),
 (7, 'hirusha@gmail.com', '$2y$10$vfG5sbfkK1.hXc8N/FRdheQlkr.O5mSuW9oJogoZ16VwNKxrAAZqa', 'Hirusha Dewmina ', '9494716092792', 2, 'Gampaha', 11, 5, 'Rs. 2,000', 0.0, 0, '', 'uploads/avatars/tech_7_avatar_1791278602.jpeg', 'pending', 1, 'uploads/nic/7_nic_front_1791183786.png', 'uploads/nic/7_nic_back_1791183786.png', NULL, NULL, '2026-10-05 07:03:06'),
 (8, 'chanupa@gmail.com', '$2y$10$uHypVqBh.L8Q28xOl6qJH.g2KD9yE2GOD9BdXPDehWX1G3xkgNlLW', 'chanupa de silva', '94775656565', 1, 'Kochchikade', 1, 18, 'Free Estimate', 0.0, 0, '', NULL, 'verified', 1, 'uploads/nic/8_nic_front_1791206184.png', 'uploads/nic/8_nic_back_1791206184.png', NULL, '2026-10-06 05:47:16', '2026-10-05 13:16:24'),
-(9, 'themiya001@gmail.com', '$2y$10$RkkHh039HgZ5k/VyVmUb6uPzcEe/MKP/A/8BJc1BgshP5NRSIs8R2', 'nrhd bandara', '9494758171225', 11, 'Akkaraipattu', 1, 18, 'Rs. 2,000', 0.0, 0, NULL, NULL, 'verified', 1, 'uploads/nic/9_nic_front_1791342308.jpg', 'uploads/nic/9_nic_back_1791342308.jpg', NULL, '2026-10-07 03:06:54', '2026-10-07 03:05:08');
+(9, 'themiya001@gmail.com', '$2y$10$RkkHh039HgZ5k/VyVmUb6uPzcEe/MKP/A/8BJc1BgshP5NRSIs8R2', 'nrhd bandara', '9494758171225', 11, 'Akkaraipattu', 1, 18, 'Rs. 2,000', 0.0, 0, NULL, NULL, 'verified', 1, 'uploads/nic/9_nic_front_1791342308.jpg', 'uploads/nic/9_nic_back_1791342308.jpg', NULL, '2026-10-07 03:06:54', '2026-10-07 03:05:08'),
+(10, 'bawantha@gmail.com', '$2y$10$edbdahvtWCsnyrisXx//5uqn2wXpg.Iuu/8t9Z3MRIatv7IkUS1g2', 'Bawantha Chamod', '94718574662', 4, 'Kandy', 1, 5, 'Rs. 500', 5.0, 1, '', 'uploads/avatars/tech_10_avatar_1791712685.jpg', 'verified', 0, 'uploads/nic/10_nic_front_1791712437.jpg', 'uploads/nic/10_nic_back_1791712437.jpg', NULL, '2026-10-11 09:55:09', '2026-10-11 09:53:57'),
+(11, 'santhush@gmail.com', '$2y$10$zFFEqPvEpHSC83WohM5zX.3VOFS3QvIx6Jj5.jlH0BPqcTgRnJDw2', 'Santhush', '94758171225', 1, 'Colombo 03', 10, 5, 'Rs. 2,000', 0.0, 0, NULL, NULL, 'pending', 1, 'uploads/nic/11_nic_front_1791729463.png', 'uploads/nic/11_nic_back_1791729463.png', NULL, NULL, '2026-10-11 14:37:43');
 
 -- --------------------------------------------------------
 
@@ -622,7 +626,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `email`, `password`, `name`, `phone`, `district_id`, `city`, `profile_picture`, `status`, `created_at`) VALUES
 (1, 'induwara@gmail.com', '$2y$10$SsVx5CtC4w6nkDGbggF5/OZj8FW15RcCHVRtuVXI0OiQs9pqY3RUa', 'Induwara Sachintha', '758171225', 13, 'Wariyapola', 'uploads/avatars/user_1_avatar_1791278710.jpg', 'active', '2026-10-04 05:19:47'),
 (2, 'Abc@gmail.com', '$2y$10$eY1n2IRKNdgHt2So83vhSelt3H3VhVTDekM9dDZ.qECGv6uR3amUe', 'ABC', NULL, 11, 'Ampara', NULL, 'active', '2026-10-05 12:33:13'),
-(3, 'Nisansala@gmail.com', '$2y$10$gmHxCb6wUI4ftkdkP111j.S92KKkxG6TmtKg1b7MGmX5VWxCixb7a', 'Tharanga Ruwani Nisansala ', NULL, 2, 'Kiribathgoda', NULL, 'active', '2026-10-06 06:38:01');
+(3, 'Nisansala@gmail.com', '$2y$10$gmHxCb6wUI4ftkdkP111j.S92KKkxG6TmtKg1b7MGmX5VWxCixb7a', 'Tharanga Ruwani Nisansala ', NULL, 2, 'Kiribathgoda', NULL, 'active', '2026-10-06 06:38:01'),
+(5, 'tharusha@gmail.com', '$2y$10$A2JAdwWPTObrkiwaIOgAP.DMi34Li031KX5LxOItcDjZnZdKTSs1i', 'Tharusha', '718574662', 4, 'Kandy', NULL, 'active', '2026-10-11 10:37:17');
 
 --
 -- Indexes for dumped tables
@@ -661,8 +666,7 @@ ALTER TABLE `districts`
 --
 ALTER TABLE `ratings`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `unique_user_tech` (`user_id`, `technician_id`),
-  ADD KEY `user_id` (`user_id`),
+  ADD UNIQUE KEY `unique_user_tech` (`user_id`,`technician_id`),
   ADD KEY `technician_id` (`technician_id`);
 
 --
@@ -702,7 +706,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `cities`
@@ -720,7 +724,7 @@ ALTER TABLE `districts`
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `services`
@@ -732,13 +736,13 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `technicians`
 --
 ALTER TABLE `technicians`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
